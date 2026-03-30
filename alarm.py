@@ -16,9 +16,9 @@ dateSim = np.empty((0, 4), dtype=object)  # numpy pentru stocarea datelor
 # Citirea datelor
 def readData():
     global df_final  # Indica faptul ca modifici variabila globala
-    dfPM1 = pd.read_csv(r"C:\Users\bosne\Desktop\Python AI\Carei Satu Mare\Urad PM1.csv")
-    dfPM10 = pd.read_csv(r"C:\Users\bosne\Desktop\Python AI\Carei Satu Mare\Urad PM10.csv")
-    dfPM25 = pd.read_csv(r"C:\Users\bosne\Desktop\Python AI\Carei Satu Mare\Urad PM25.csv")
+    dfPM1 = pd.read_csv("Urad_PM1.csv")
+    dfPM10 = pd.read_csv("Urad_PM10.csv")
+    dfPM25 = pd.read_csv("Urad_PM25.csv")
     #concateneaza toate DataFrame-urile
     df_concat = pd.concat([dfPM1, dfPM10, dfPM25], axis=1)
     #Elimina coloanele duplicate si creeaza o copie completa
@@ -134,7 +134,7 @@ def savePlot():
     plt.legend()
     plt.grid()
     plt.tight_layout()
-    locatiePDF = r"C:\Users\bosne\Desktop\grafic_poluanti.pdf"
+    locatiePDF = "grafic_poluanti.pdf"
     with PdfPages(locatiePDF) as pdf:
         pdf.savefig()
 
